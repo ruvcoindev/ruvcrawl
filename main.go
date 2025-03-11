@@ -1,5 +1,5 @@
-// yggcrawl
-// Copyright (C) 2020 Neil Alexander
+// ruvcrawl
+// Copyright (C) 2020 Neil Alexander & ruvcoindev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -30,18 +30,18 @@ import (
 	"time"
 
 	"github.com/gologme/log"
-	"github.com/yggdrasil-network/yggdrasil-go/src/address"
-	"github.com/yggdrasil-network/yggdrasil-go/src/config"
-	"github.com/yggdrasil-network/yggdrasil-go/src/crypto"
-	"github.com/yggdrasil-network/yggdrasil-go/src/yggdrasil"
+	"github.com/ruvcoindev/ruvchain/src/address"
+	"github.com/ruvcoindev/ruvchain/src/config"
+	"github.com/ruvcoindev/ruvchain/src/crypto"
+	"github.com/ruvcoindev/ruvchain/src/ruvchain"
 )
 
 var defaultPeer = flag.String("peer", "", "static peer to use, e.g. tcp://host:port")
 var defaultFilename = flag.String("file", "results.json", "filename to write results to")
-var defaultAdminSocket = flag.String("admin", "none", "admin socket path, e.g. unix:///var/run/yggcrawl.sock")
+var defaultAdminSocket = flag.String("admin", "none", "admin socket path, e.g. unix:///var/run/ruvcrawl.sock")
 
 type node struct {
-	core              yggdrasil.Core
+	core              ruvchain.Core
 	config            *config.NodeConfig
 	log               *log.Logger
 	dhtWaitGroup      sync.WaitGroup
@@ -91,7 +91,7 @@ func main() {
 	n.nodeInfoVisited = make(map[string]interface{})
 
 	n.config.NodeInfo = map[string]interface{}{
-		"name": "Yggdrasil Crawler",
+		"name": "Ruvchain Crawler",
 	}
 	n.config.AdminListen = *defaultAdminSocket
 	n.config.SessionFirewall.Enable = true
