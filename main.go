@@ -33,7 +33,7 @@ import (
 	"github.com/ruvcoindev/ruvchain/src/address"
 	"github.com/ruvcoindev/ruvchain/src/config"
 	"github.com/ruvcoindev/ruvchain/src/crypto"
-	"github.com/ruvcoindev/ruvchain/src/ruvchain"
+	//"github.com/ruvcoindev/ruvchain/src/ruvchain"
 )
 
 var defaultPeer = flag.String("peer", "", "static peer to use, e.g. tcp://host:port")
